@@ -9,7 +9,7 @@ import FemaleIcon from '@mui/icons-material/Female';
 import TransgenderIcon from '@mui/icons-material/Transgender';
 
 import { apiBaseUrl } from "../constants";
-import { Patient } from '../types';
+import { Patient, Entry, Diagnosis } from '../types';
 
 const PatientPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -41,6 +41,17 @@ const PatientPage = () => {
       </h2>
       <p>ssn: {patient.ssn}</p>
       <p>occupation: {patient.occupation}</p>
+      <h3>entries</h3>
+      {patient.entries.map((entry: Entry) => (
+        <div key={entry.id}>
+          <p>{entry.date} {entry.description}</p>
+          <ul>
+            {entry.diagnosisCodes?.map((code: Diagnosis['code']) => (
+              <li key={code}>{code}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </div>
   );
 };
