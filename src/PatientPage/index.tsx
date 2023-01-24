@@ -11,9 +11,11 @@ import TransgenderIcon from '@mui/icons-material/Transgender';
 import { apiBaseUrl } from "../constants";
 import { Patient, Entry, Diagnosis } from '../types';
 
+import EntryDetails from '../components/EntryDetails';
+
 const PatientPage = () => {
   const { id } = useParams<{ id: string }>();
-  const [{ patient, diagnoses }, dispatch] = useStateValue();
+  const [{ patient }, dispatch] = useStateValue();
 
   React.useEffect(() => {
     const fetchPatient = async () => {
@@ -55,14 +57,7 @@ const PatientPage = () => {
       <p>occupation: {patient.occupation}</p>
       <h3>entries</h3>
       {patient.entries.map((entry: Entry) => (
-        <div key={entry.id}>
-          <p>{entry.date} <i>{entry.description}</i></p>
-          <ul>
-            {entry.diagnosisCodes?.map((code: Diagnosis['code']) => (
-              <li key={code}>{code} {diagnoses[code].name}</li>
-            ))}
-          </ul>
-        </div>
+        <EntryDetails key={entry.id} entry={entry} />
       ))}
     </div>
   );
