@@ -16,7 +16,6 @@ const EntryDetails: React.FC<{ entry: Entry }> = ({ entry }) => {
 
   switch (entry.type) {
     case "Hospital":
-      console.log("discharge:", entry.discharge);
       return <HospitalEntry entry={entry} diagnoses={diagnoses}/>;
     case "OccupationalHealthcare":
       return <OccupationalHealthcareEntry entry={entry} diagnoses={diagnoses}/>;

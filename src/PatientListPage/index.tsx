@@ -3,8 +3,8 @@ import axios from "axios";
 import { Box, Table, Button, TableHead, Typography } from "@material-ui/core";
 import { useNavigate } from 'react-router-dom';
 
-import { PatientFormValues } from "../AddPatientModal/AddPatientForm";
-import AddPatientModal from "../AddPatientModal";
+import { PatientFormValues } from "../AddModal/AddPatientForm";
+import { AddPatientModal } from "../AddModal";
 import { Patient } from "../types";
 import { apiBaseUrl } from "../constants";
 import HealthRatingBar from "../components/HealthRatingBar";

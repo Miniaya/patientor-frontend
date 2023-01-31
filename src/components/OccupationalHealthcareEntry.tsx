@@ -12,7 +12,6 @@ type EntryProps = {
 
 const OccupationalHealthcareEntry = ({ entry, diagnoses }: EntryProps) => (
   <Card variant="outlined">
-    {console.log(entry)}
     <CardContent>
       <p>{entry.date} <WorkIcon /></p>
       { "employerName" in entry && 

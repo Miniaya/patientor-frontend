@@ -12,7 +12,6 @@ type EntryProps = {
 
 const HospitalEntry = ({ entry, diagnoses }: EntryProps) => (
   <Card variant="outlined">
-    {console.log(entry)}
     <CardContent>
       <p>{entry.date} <LocalHospitalIcon /></p>
       <i>{entry.description}</i>
